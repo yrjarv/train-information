@@ -1,0 +1,63 @@
+<!doctype html>
+<head>
+    <! Stylesheet >
+        <link rel="stylesheet" href="style.css">
+    <! JS >
+        <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+    <! Header >
+        <h1>Departure board for trains in Norway</h1>
+
+    <! Station code >
+        <label for="station">Station code (two or three letters):</label>
+        <br>
+        <input type="text" id="station" placeholder="OSL">
+        <span class="helpbutton" onclick="getHelp()" id="helpbutton">(Help)</span>
+
+        <div id="help">
+            <! Here, the JS will put the help information if .helpbutton is pressed >
+        </div>
+
+    <br>
+    <br>
+
+    <! Content type >
+        <label for="content">Content type:</label>
+        <select id="content">
+            <option value="arrival">Arrival</option>
+            <option value="departure">Departure</option>
+        </select>
+
+    <br>
+    <br>
+
+    <! Layout >
+        <label for="layout">Layout:</label>
+        <select id="layout">
+            <option value="landscape">Landscape</option>
+            <option value="portrait">Portrait</option>
+        </select>
+
+    <br>
+    <br>
+    
+    <! Notice >
+        <label for="notice">Station specific messages:</label>
+        <select id="notice">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+    <br>
+    <br>
+
+    <! Get link >
+        <button type="button" onclick="findLink()">Get the link</button>
+
+    <! Output >
+        <div id="output">
+            <! Here, the JS will put the link to the departure board when button is pressed >
+        </div>
+</body>
