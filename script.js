@@ -11,22 +11,16 @@ function findLink() {
     notice = document.getElementById("notice").value
 
     // If no station is given, assume that they want the placeholder (OSL)
-    if (station == "") {
-        station = "OSL"
-    }
+    if (station == "") {station = "OSL"}
 
+    //Create link to the departure board
+    link = 'http://rtd.opm.jbv.no:8080/web_client/std?station=' + station
+    //If the chosen alternative other than default, add it to the link
+    if(content == "arrival")        {link += '&content=arrival'}
+    if(layout == "portrait")        {link += '&layout=' + layout}
+    if(notice == "no")              {link += '&notice=' + notice}
     // Create the output string
-    output = (
-        '<a href="'
-        + (                                                     //The link
-            "http://rtd.opm.jbv.no:8080/web_client/std?" + 
-            "station=" + station + 
-            "&content=" + content + 
-            "&layout=" + layout + 
-            "&notice=" + notice
-        ) + 
-        '">This is the link</a>'
-        )
+    output = '<a href="' + link + '">This is the link</a>'
 
     // Make the content of the output div the HTML in the output string
     document.getElementById("output").innerHTML = output
